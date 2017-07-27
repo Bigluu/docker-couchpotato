@@ -36,4 +36,4 @@ VOLUME /config /downloads /movies
 USER 1001
 
 ## Run Couchpotato
-ENTRYPOINT ["python", "CouchPotato.py"]
+ENTRYPOINT ["python", "CouchPotato.py", "--config_file=/config/config.ini", "--data_dir=/config/data"]
