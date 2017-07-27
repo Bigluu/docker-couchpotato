@@ -22,6 +22,8 @@ RUN mkdir /opt && \
   git clone --depth 1 https://github.com/CouchPotato/CouchPotatoServer /opt/couchpotato && \
   chmod -R og+rwx /opt/couchpotato && \
   chown -R 1001:0 /opt/couchpotato
+  
+ENV HOME="/opt/couchpotato"
 
 ## Expose port
 EXPOSE 5050
