@@ -20,7 +20,7 @@ RUN apk add --update git python && \
 RUN mkdir /opt && \
   cd /opt && \
   git clone --depth 1 https://github.com/CouchPotato/CouchPotatoServer /opt/couchpotato && \
-  chmod -R a+rwx /opt/couchpotato
+  chmod -R a+rwx /opt/couchpotato && \
   chown -R 1001:0 /opt/couchpotato
 
 ## Expose port
