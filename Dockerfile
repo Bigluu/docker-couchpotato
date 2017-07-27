@@ -16,12 +16,16 @@ ENV PYTHONIOENCODING="UTF-8"
 RUN apk add --update git python && \
   rm -rf /var/cache/apk/*
 
+VOLUME /config /downloads /movies
+
 ## Install Couchpotato
 RUN mkdir /opt && \
   cd /opt && \
   git clone --depth 1 https://github.com/CouchPotato/CouchPotatoServer /opt/couchpotato && \
   chmod -R og+rwx /opt/couchpotato && \
-  chown -R 1001:0 /opt/couchpotato
+  chown -R 1001:0 /opt/couchpotato && \
+  chmod -R og+rwx /config && \
+  chown -R 1001:0 /config
   
 ENV HOME="/opt/couchpotato"
 
@@ -30,8 +34,6 @@ EXPOSE 5050
 
 ## Set working directory
 WORKDIR /opt/couchpotato
-
-VOLUME /config /downloads /movies
 
 USER 1001
 
